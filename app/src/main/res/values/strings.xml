@@ -1,4 +1,33 @@
 <resources>
     <string name="app_name">Routip</string>
-</resources>
+    <string name="subtitulo">Planeje hoje. Viaje melhor.</string>
+    <string name="icone_destino">Ícone de destino</string>
+    <string name="configure_viagem">Configure sua viagem</string>
+    <string name="destino">Destino</string>
+    <string name="data_ida">Data de ida</string>
+    <string name="data_volta">Data de volta</string>
+    <string name="selecionar_data">Selecionar</string>
+    <string name="preferencias">O que você gosta?</string>
+    <string name="gastronomia">Gastronomia</string>
+    <string name="natureza">Natureza</string>
+    <string name="fotografia">Fotografia</string>
+    <string name="continuar">Continuar</string>
+    <string name="escolha_nova_volta">Escolha novamente a data de volta</string>
+    <string name="selecione_ida_primeiro">Selecione primeiro a data de ida</string>
+    <string name="escolha_destino">Escolha um destino</string>
+    <string name="escolha_datas">Selecione as datas de ida e volta</string>
+    <string name="volta_invalida">A data de volta não pode ser anterior à ida</string>
+    <string name="escolha_preferencia">Marque pelo menos uma preferência</string>
+    <string name="tudo_certo">Tudo certo!</string>
+    <string name="ok">OK</string>
+    <string name="resumo_configuracao">Destino: %1$s\nIda: %2$s\nVolta: %3$s\nPreferências: %4$s</string>
 
+    <string-array name="destinos">
+        <item>Selecione um destino</item>
+        <item>Foz do Iguaçu</item>
+        <item>Florianópolis</item>
+        <item>Gramado</item>
+        <item>Rio de Janeiro</item>
+        <item>Salvador</item>
+    </string-array>
+</resources>
