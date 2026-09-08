@@ -7,4 +7,5 @@
     <color name="routip_blue_border">#90CAF9</color>
     <color name="routip_background">#F4F8FC</color>
     <color name="routip_text">#17324D</color>
+    <color name="routip_text_secondary">#52677A</color>
 </resources>

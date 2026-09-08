@@ -1,6 +1,7 @@
 package com.laurencekl.routip
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
@@ -140,12 +141,20 @@ class MainActivity : AppCompatActivity() {
             preferencias.joinToString(", ")
         )
 
-        Log.d("Routip", "Tela 1: $resumo")
-
         AlertDialog.Builder(this)
             .setTitle(R.string.tudo_certo)
             .setMessage(resumo)
-            .setPositiveButton(R.string.ok, null)
+            .setPositiveButton(R.string.ver_atividades) { _, _ ->
+                Log.d("Routip", "Tela 1 -> Tela 2: $resumo")
+
+                val intent = Intent(this, AtividadesActivity::class.java)
+                intent.putExtra(ViagemExtras.DESTINO, spinnerDestino.selectedItem.toString())
+                intent.putExtra(ViagemExtras.DATA_IDA, formatarData(ida))
+                intent.putExtra(ViagemExtras.DATA_VOLTA, formatarData(volta))
+                intent.putExtra(ViagemExtras.PREFERENCIAS, preferencias.joinToString(","))
+                startActivity(intent)
+            }
+            .setNegativeButton(R.string.cancelar, null)
             .show()
     }
 

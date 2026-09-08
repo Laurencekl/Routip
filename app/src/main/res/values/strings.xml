@@ -19,8 +19,14 @@
     <string name="volta_invalida">A data de volta não pode ser anterior à ida</string>
     <string name="escolha_preferencia">Marque pelo menos uma preferência</string>
     <string name="tudo_certo">Tudo certo!</string>
-    <string name="ok">OK</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="ver_atividades">Ver atividades</string>
     <string name="resumo_configuracao">Destino: %1$s\nIda: %2$s\nVolta: %3$s\nPreferências: %4$s</string>
+    <string name="atividades_para_voce">Atividades para você</string>
+    <string name="filtros_selecionados">Filtros: %1$s</string>
+    <string name="voltar">Voltar</string>
+    <string name="imagem_atividade">Imagem da atividade</string>
+    <string name="atividade_selecionada">Selecionado: %1$s</string>
 
     <string-array name="destinos">
         <item>Selecione um destino</item>

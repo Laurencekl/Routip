@@ -3,10 +3,15 @@
 
     <application
         android:name=".RoutipApplication"
-        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Routip">
+
+        <activity
+            android:name=".AtividadesActivity"
+            android:exported="false" />
 
         <activity
             android:name=".MainActivity"
