@@ -9,4 +9,6 @@ object ViagemExtras {
     const val ATIVIDADE_DESCRICAO = "atividade_descricao"
     const val ATIVIDADE_CATEGORIA = "atividade_categoria"
     const val ATIVIDADE_ICONE = "atividade_icone"
+    const val DURACAO = "duracao"
+    const val DIFICULDADE = "dificuldade"
 }

@@ -1,5 +1,6 @@
 package com.laurencekl.routip
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -23,6 +24,10 @@ class DetalhesActivity : AppCompatActivity() {
         val descricao = intent.getStringExtra(ViagemExtras.ATIVIDADE_DESCRICAO).orEmpty()
         val categoria = intent.getStringExtra(ViagemExtras.ATIVIDADE_CATEGORIA).orEmpty()
         val icone = intent.getIntExtra(ViagemExtras.ATIVIDADE_ICONE, R.drawable.ic_location)
+        val destino = intent.getStringExtra(ViagemExtras.DESTINO).orEmpty()
+        val dataIda = intent.getStringExtra(ViagemExtras.DATA_IDA).orEmpty()
+        val dataVolta = intent.getStringExtra(ViagemExtras.DATA_VOLTA).orEmpty()
+        val preferencias = intent.getStringExtra(ViagemExtras.PREFERENCIAS).orEmpty()
 
         findViewById<TextView>(R.id.tituloDetalhes).text = titulo
         findViewById<TextView>(R.id.descricaoDetalhes).text = descricao
@@ -52,7 +57,17 @@ class DetalhesActivity : AppCompatActivity() {
         })
 
         findViewById<Button>(R.id.botaoAdicionar).setOnClickListener {
-            confirmarAtividade(titulo, seekDuracao.progress)
+            confirmarAtividade(
+                titulo,
+                descricao,
+                categoria,
+                icone,
+                destino,
+                dataIda,
+                dataVolta,
+                preferencias,
+                seekDuracao.progress
+            )
         }
     }
 
@@ -64,7 +79,17 @@ class DetalhesActivity : AppCompatActivity() {
         )
     }
 
-    private fun confirmarAtividade(titulo: String, duracao: Int) {
+    private fun confirmarAtividade(
+        titulo: String,
+        descricao: String,
+        categoria: String,
+        icone: Int,
+        destino: String,
+        dataIda: String,
+        dataVolta: String,
+        preferencias: String,
+        duracao: Int
+    ) {
         val radioDificuldade = findViewById<RadioGroup>(R.id.radioDificuldade)
         val dificuldade = when (radioDificuldade.checkedRadioButtonId) {
             R.id.radioFacil -> getString(R.string.facil)
@@ -82,9 +107,25 @@ class DetalhesActivity : AppCompatActivity() {
         Log.d("Routip", "Tela 3: $resumo")
 
         AlertDialog.Builder(this)
-            .setTitle(R.string.atividade_adicionada)
+            .setTitle(R.string.confirmar_atividade)
             .setMessage(resumo)
-            .setPositiveButton(R.string.ok, null)
+            .setPositiveButton(R.string.ver_resumo) { _, _ ->
+                Log.d("Routip", "Tela 3 -> Tela 4: $resumo")
+
+                val intent = Intent(this, ResumoActivity::class.java)
+                intent.putExtra(ViagemExtras.DESTINO, destino)
+                intent.putExtra(ViagemExtras.DATA_IDA, dataIda)
+                intent.putExtra(ViagemExtras.DATA_VOLTA, dataVolta)
+                intent.putExtra(ViagemExtras.PREFERENCIAS, preferencias)
+                intent.putExtra(ViagemExtras.ATIVIDADE_TITULO, titulo)
+                intent.putExtra(ViagemExtras.ATIVIDADE_DESCRICAO, descricao)
+                intent.putExtra(ViagemExtras.ATIVIDADE_CATEGORIA, categoria)
+                intent.putExtra(ViagemExtras.ATIVIDADE_ICONE, icone)
+                intent.putExtra(ViagemExtras.DURACAO, duracao)
+                intent.putExtra(ViagemExtras.DIFICULDADE, dificuldade)
+                startActivity(intent)
+            }
+            .setNegativeButton(R.string.cancelar, null)
             .show()
     }
 }
