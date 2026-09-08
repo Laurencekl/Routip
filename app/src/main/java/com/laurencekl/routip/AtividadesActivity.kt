@@ -1,12 +1,12 @@
 package com.laurencekl.routip
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class AtividadesActivity : AppCompatActivity() {
@@ -23,6 +23,8 @@ class AtividadesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_atividades)
 
         val destino = intent.getStringExtra(ViagemExtras.DESTINO).orEmpty()
+        val dataIda = intent.getStringExtra(ViagemExtras.DATA_IDA).orEmpty()
+        val dataVolta = intent.getStringExtra(ViagemExtras.DATA_VOLTA).orEmpty()
         val preferenciasTexto = intent.getStringExtra(ViagemExtras.PREFERENCIAS).orEmpty()
         val preferencias = preferenciasTexto.split(",").filter { it.isNotBlank() }
 
@@ -37,7 +39,7 @@ class AtividadesActivity : AppCompatActivity() {
         }
 
         val atividades = filtrarAtividades(preferencias)
-        configurarLista(atividades)
+        configurarLista(atividades, destino, dataIda, dataVolta, preferenciasTexto)
     }
 
     private fun filtrarAtividades(preferencias: List<String>): List<Atividade> {
@@ -85,7 +87,13 @@ class AtividadesActivity : AppCompatActivity() {
         }
     }
 
-    private fun configurarLista(atividades: List<Atividade>) {
+    private fun configurarLista(
+        atividades: List<Atividade>,
+        destino: String,
+        dataIda: String,
+        dataVolta: String,
+        preferencias: String
+    ) {
         val dadosLista = atividades.map { atividade ->
             hashMapOf<String, Any>(
                 "icone" to atividade.icone,
@@ -112,12 +120,18 @@ class AtividadesActivity : AppCompatActivity() {
         lista.adapter = adapter
         lista.setOnItemClickListener { _, _, posicao, _ ->
             val atividade = atividades[posicao]
-            Log.d("Routip", "Tela 2: atividade escolhida=${atividade.titulo}")
-            Toast.makeText(
-                this,
-                getString(R.string.atividade_selecionada, atividade.titulo),
-                Toast.LENGTH_SHORT
-            ).show()
+            Log.d("Routip", "Tela 2 -> Tela 3: atividade=${atividade.titulo}")
+
+            val intent = Intent(this, DetalhesActivity::class.java)
+            intent.putExtra(ViagemExtras.DESTINO, destino)
+            intent.putExtra(ViagemExtras.DATA_IDA, dataIda)
+            intent.putExtra(ViagemExtras.DATA_VOLTA, dataVolta)
+            intent.putExtra(ViagemExtras.PREFERENCIAS, preferencias)
+            intent.putExtra(ViagemExtras.ATIVIDADE_TITULO, atividade.titulo)
+            intent.putExtra(ViagemExtras.ATIVIDADE_DESCRICAO, atividade.descricao)
+            intent.putExtra(ViagemExtras.ATIVIDADE_CATEGORIA, atividade.categoria)
+            intent.putExtra(ViagemExtras.ATIVIDADE_ICONE, atividade.icone)
+            startActivity(intent)
         }
     }
 }

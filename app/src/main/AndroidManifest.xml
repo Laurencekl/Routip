@@ -10,6 +10,10 @@
         android:theme="@style/Theme.Routip">
 
         <activity
+            android:name=".DetalhesActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".AtividadesActivity"
             android:exported="false" />
 

@@ -27,6 +27,21 @@
     <string name="voltar">Voltar</string>
     <string name="imagem_atividade">Imagem da atividade</string>
     <string name="atividade_selecionada">Selecionado: %1$s</string>
+    <string name="detalhes_atividade">Detalhes da atividade</string>
+    <string name="duracao">Duração</string>
+    <string name="dificuldade">Nível de dificuldade</string>
+    <string name="facil">Fácil</string>
+    <string name="moderada">Moderada</string>
+    <string name="dificil">Difícil</string>
+    <string name="adicionar_viagem">Adicionar à viagem</string>
+    <string name="atividade_adicionada">Atividade adicionada!</string>
+    <string name="resumo_atividade">Atividade: %1$s\nDuração: %2$d hora(s)\nDificuldade: %3$s</string>
+    <string name="ok">OK</string>
+
+    <plurals name="quantidade_horas">
+        <item quantity="one">%d hora</item>
+        <item quantity="other">%d horas</item>
+    </plurals>
 
     <string-array name="destinos">
         <item>Selecione um destino</item>
