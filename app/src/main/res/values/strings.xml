@@ -44,6 +44,7 @@
     <string name="finalizar_planejamento">Finalizar planejamento</string>
     <string name="viagem_planejada">Viagem planejada!</string>
     <string name="mensagem_finalizacao">Seu planejamento foi concluído com sucesso.</string>
+    <string name="voltar_inicio">Voltar ao início</string>
     <string name="periodo_resumo">%1$s até %2$s</string>
     <string name="ok">OK</string>
 

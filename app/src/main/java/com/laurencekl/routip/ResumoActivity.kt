@@ -1,5 +1,6 @@
 package com.laurencekl.routip
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -58,7 +59,11 @@ class ResumoActivity : AppCompatActivity() {
             AlertDialog.Builder(this)
                 .setTitle(R.string.viagem_planejada)
                 .setMessage(R.string.mensagem_finalizacao)
-                .setPositiveButton(R.string.ok, null)
+                .setPositiveButton(R.string.voltar_inicio) { _, _ ->
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                }
                 .show()
         }
     }
