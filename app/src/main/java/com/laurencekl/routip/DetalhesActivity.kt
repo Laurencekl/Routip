@@ -28,6 +28,9 @@ class DetalhesActivity : AppCompatActivity() {
         val dataIda = intent.getStringExtra(ViagemExtras.DATA_IDA).orEmpty()
         val dataVolta = intent.getStringExtra(ViagemExtras.DATA_VOLTA).orEmpty()
         val preferencias = intent.getStringExtra(ViagemExtras.PREFERENCIAS).orEmpty()
+        val atividadesAdicionadas = intent.getStringExtra(
+            ViagemExtras.ATIVIDADES_ADICIONADAS
+        ).orEmpty()
 
         findViewById<TextView>(R.id.tituloDetalhes).text = titulo
         findViewById<TextView>(R.id.descricaoDetalhes).text = descricao
@@ -66,6 +69,7 @@ class DetalhesActivity : AppCompatActivity() {
                 dataIda,
                 dataVolta,
                 preferencias,
+                atividadesAdicionadas,
                 seekDuracao.progress
             )
         }
@@ -88,6 +92,7 @@ class DetalhesActivity : AppCompatActivity() {
         dataIda: String,
         dataVolta: String,
         preferencias: String,
+        atividadesAdicionadas: String,
         duracao: Int
     ) {
         val radioDificuldade = findViewById<RadioGroup>(R.id.radioDificuldade)
@@ -106,6 +111,12 @@ class DetalhesActivity : AppCompatActivity() {
 
         Log.d("Routip", "Tela 3: $resumo")
 
+        val listaAtualizada = if (atividadesAdicionadas.isBlank()) {
+            titulo
+        } else {
+            "$atividadesAdicionadas,$titulo"
+        }
+
         AlertDialog.Builder(this)
             .setTitle(R.string.confirmar_atividade)
             .setMessage(resumo)
@@ -123,6 +134,7 @@ class DetalhesActivity : AppCompatActivity() {
                 intent.putExtra(ViagemExtras.ATIVIDADE_ICONE, icone)
                 intent.putExtra(ViagemExtras.DURACAO, duracao)
                 intent.putExtra(ViagemExtras.DIFICULDADE, dificuldade)
+                intent.putExtra(ViagemExtras.ATIVIDADES_ADICIONADAS, listaAtualizada)
                 startActivity(intent)
             }
             .setNegativeButton(R.string.cancelar, null)

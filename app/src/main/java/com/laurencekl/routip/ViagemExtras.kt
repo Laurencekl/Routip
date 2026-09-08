@@ -11,4 +11,5 @@ object ViagemExtras {
     const val ATIVIDADE_ICONE = "atividade_icone"
     const val DURACAO = "duracao"
     const val DIFICULDADE = "dificuldade"
+    const val ATIVIDADES_ADICIONADAS = "atividades_adicionadas"
 }

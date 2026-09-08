@@ -26,6 +26,9 @@ class AtividadesActivity : AppCompatActivity() {
         val dataIda = intent.getStringExtra(ViagemExtras.DATA_IDA).orEmpty()
         val dataVolta = intent.getStringExtra(ViagemExtras.DATA_VOLTA).orEmpty()
         val preferenciasTexto = intent.getStringExtra(ViagemExtras.PREFERENCIAS).orEmpty()
+        val atividadesAdicionadas = intent.getStringExtra(
+            ViagemExtras.ATIVIDADES_ADICIONADAS
+        ).orEmpty()
         val preferencias = preferenciasTexto.split(",").filter { it.isNotBlank() }
 
         findViewById<TextView>(R.id.textoDestino).text = destino
@@ -39,7 +42,14 @@ class AtividadesActivity : AppCompatActivity() {
         }
 
         val atividades = filtrarAtividades(preferencias)
-        configurarLista(atividades, destino, dataIda, dataVolta, preferenciasTexto)
+        configurarLista(
+            atividades,
+            destino,
+            dataIda,
+            dataVolta,
+            preferenciasTexto,
+            atividadesAdicionadas
+        )
     }
 
     private fun filtrarAtividades(preferencias: List<String>): List<Atividade> {
@@ -92,7 +102,8 @@ class AtividadesActivity : AppCompatActivity() {
         destino: String,
         dataIda: String,
         dataVolta: String,
-        preferencias: String
+        preferencias: String,
+        atividadesAdicionadas: String
     ) {
         val dadosLista = atividades.map { atividade ->
             hashMapOf<String, Any>(
@@ -131,6 +142,7 @@ class AtividadesActivity : AppCompatActivity() {
             intent.putExtra(ViagemExtras.ATIVIDADE_DESCRICAO, atividade.descricao)
             intent.putExtra(ViagemExtras.ATIVIDADE_CATEGORIA, atividade.categoria)
             intent.putExtra(ViagemExtras.ATIVIDADE_ICONE, atividade.icone)
+            intent.putExtra(ViagemExtras.ATIVIDADES_ADICIONADAS, atividadesAdicionadas)
             startActivity(intent)
         }
     }

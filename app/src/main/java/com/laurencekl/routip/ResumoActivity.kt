@@ -26,6 +26,9 @@ class ResumoActivity : AppCompatActivity() {
         val icone = intent.getIntExtra(ViagemExtras.ATIVIDADE_ICONE, R.drawable.ic_location)
         val duracao = intent.getIntExtra(ViagemExtras.DURACAO, 1)
         val dificuldade = intent.getStringExtra(ViagemExtras.DIFICULDADE).orEmpty()
+        val atividadesAdicionadas = intent.getStringExtra(
+            ViagemExtras.ATIVIDADES_ADICIONADAS
+        ).orEmpty()
 
         findViewById<TextView>(R.id.textoDestinoResumo).text = destino
         findViewById<TextView>(R.id.textoPeriodoResumo).text = getString(
@@ -44,16 +47,31 @@ class ResumoActivity : AppCompatActivity() {
             duracao
         )
         findViewById<TextView>(R.id.textoDificuldadeResumo).text = dificuldade
+        findViewById<TextView>(R.id.textoAtividadesAdicionadas).text =
+            atividadesAdicionadas.replace(",", " • ")
         findViewById<ImageView>(R.id.imagemResumo).setImageResource(icone)
 
         findViewById<ImageButton>(R.id.botaoVoltarResumo).setOnClickListener {
             finish()
         }
 
+        findViewById<Button>(R.id.botaoAdicionarOutra).setOnClickListener {
+            Log.d("Routip", "Tela 4 -> Tela 2: adicionar outra atividade")
+
+            val intent = Intent(this, AtividadesActivity::class.java)
+            intent.putExtra(ViagemExtras.DESTINO, destino)
+            intent.putExtra(ViagemExtras.DATA_IDA, dataIda)
+            intent.putExtra(ViagemExtras.DATA_VOLTA, dataVolta)
+            intent.putExtra(ViagemExtras.PREFERENCIAS, preferencias)
+            intent.putExtra(ViagemExtras.ATIVIDADES_ADICIONADAS, atividadesAdicionadas)
+            startActivity(intent)
+        }
+
         findViewById<Button>(R.id.botaoFinalizar).setOnClickListener {
             val dados = "Destino=$destino, ida=$dataIda, volta=$dataVolta, " +
                 "preferências=$preferencias, atividade=$titulo, " +
-                "duração=$duracao, dificuldade=$dificuldade"
+                "duração=$duracao, dificuldade=$dificuldade, " +
+                "atividades adicionadas=$atividadesAdicionadas"
             Log.d("Routip", "Tela 4 finalizada: $dados")
 
             AlertDialog.Builder(this)
