@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.RadioGroup
 import android.widget.SeekBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
@@ -75,6 +76,15 @@ class DetalhesActivity : AppCompatActivity() {
         })
 
         findViewById<Button>(R.id.botaoAdicionar).setOnClickListener {
+            if (titulosAdicionados.contains(titulo)) {
+                Toast.makeText(
+                    this,
+                    R.string.atividade_ja_adicionada,
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
             confirmarAtividade(
                 titulo,
                 descricao,

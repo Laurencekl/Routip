@@ -42,6 +42,7 @@
     <string name="periodo">Período</string>
     <string name="atividade_escolhida">Atividades escolhidas</string>
     <string name="adicionar_outra_atividade">Adicionar outra atividade</string>
+    <string name="atividade_ja_adicionada">Esta atividade já foi adicionada ao roteiro.</string>
     <string name="finalizar_planejamento">Finalizar planejamento</string>
     <string name="viagem_planejada">Viagem planejada!</string>
     <string name="mensagem_finalizacao">Seu planejamento foi concluído com sucesso.</string>

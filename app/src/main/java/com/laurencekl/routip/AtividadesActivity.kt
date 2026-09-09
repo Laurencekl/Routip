@@ -7,6 +7,7 @@ import android.widget.ImageButton
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class AtividadesActivity : AppCompatActivity() {
@@ -156,6 +157,16 @@ class AtividadesActivity : AppCompatActivity() {
         lista.adapter = adapter
         lista.setOnItemClickListener { _, _, posicao, _ ->
             val atividade = atividades[posicao]
+
+            if (titulosAdicionados.contains(atividade.titulo)) {
+                Toast.makeText(
+                    this,
+                    R.string.atividade_ja_adicionada,
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnItemClickListener
+            }
+
             Log.d("Routip", "Tela 2 -> Tela 3: atividade=${atividade.titulo}")
 
             val intent = Intent(this, DetalhesActivity::class.java)
