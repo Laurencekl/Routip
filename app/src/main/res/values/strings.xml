@@ -40,8 +40,7 @@
     <string name="resumo_viagem">Resumo da viagem</string>
     <string name="dados_viagem">Dados da viagem</string>
     <string name="periodo">Período</string>
-    <string name="atividade_escolhida">Atividade escolhida</string>
-    <string name="atividades_roteiro">Atividades no roteiro</string>
+    <string name="atividade_escolhida">Atividades escolhidas</string>
     <string name="adicionar_outra_atividade">Adicionar outra atividade</string>
     <string name="finalizar_planejamento">Finalizar planejamento</string>
     <string name="viagem_planejada">Viagem planejada!</string>

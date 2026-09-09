@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -20,15 +21,24 @@ class ResumoActivity : AppCompatActivity() {
         val dataIda = intent.getStringExtra(ViagemExtras.DATA_IDA).orEmpty()
         val dataVolta = intent.getStringExtra(ViagemExtras.DATA_VOLTA).orEmpty()
         val preferencias = intent.getStringExtra(ViagemExtras.PREFERENCIAS).orEmpty()
-        val titulo = intent.getStringExtra(ViagemExtras.ATIVIDADE_TITULO).orEmpty()
-        val descricao = intent.getStringExtra(ViagemExtras.ATIVIDADE_DESCRICAO).orEmpty()
-        val categoria = intent.getStringExtra(ViagemExtras.ATIVIDADE_CATEGORIA).orEmpty()
-        val icone = intent.getIntExtra(ViagemExtras.ATIVIDADE_ICONE, R.drawable.ic_location)
-        val duracao = intent.getIntExtra(ViagemExtras.DURACAO, 1)
-        val dificuldade = intent.getStringExtra(ViagemExtras.DIFICULDADE).orEmpty()
-        val atividadesAdicionadas = intent.getStringExtra(
-            ViagemExtras.ATIVIDADES_ADICIONADAS
-        ).orEmpty()
+        val titulos = intent.getStringArrayListExtra(
+            ViagemExtras.ATIVIDADES_TITULOS
+        ) ?: arrayListOf()
+        val descricoes = intent.getStringArrayListExtra(
+            ViagemExtras.ATIVIDADES_DESCRICOES
+        ) ?: arrayListOf()
+        val categorias = intent.getStringArrayListExtra(
+            ViagemExtras.ATIVIDADES_CATEGORIAS
+        ) ?: arrayListOf()
+        val icones = intent.getIntegerArrayListExtra(
+            ViagemExtras.ATIVIDADES_ICONES
+        ) ?: arrayListOf()
+        val duracoes = intent.getIntegerArrayListExtra(
+            ViagemExtras.ATIVIDADES_DURACOES
+        ) ?: arrayListOf()
+        val dificuldades = intent.getStringArrayListExtra(
+            ViagemExtras.ATIVIDADES_DIFICULDADES
+        ) ?: arrayListOf()
 
         findViewById<TextView>(R.id.textoDestinoResumo).text = destino
         findViewById<TextView>(R.id.textoPeriodoResumo).text = getString(
@@ -38,18 +48,8 @@ class ResumoActivity : AppCompatActivity() {
         )
         findViewById<TextView>(R.id.textoPreferenciasResumo).text =
             preferencias.replace(",", ", ")
-        findViewById<TextView>(R.id.textoAtividadeResumo).text = titulo
-        findViewById<TextView>(R.id.textoCategoriaResumo).text = categoria
-        findViewById<TextView>(R.id.textoDescricaoResumo).text = descricao
-        findViewById<TextView>(R.id.textoDuracaoResumo).text = resources.getQuantityString(
-            R.plurals.quantidade_horas,
-            duracao,
-            duracao
-        )
-        findViewById<TextView>(R.id.textoDificuldadeResumo).text = dificuldade
-        findViewById<TextView>(R.id.textoAtividadesAdicionadas).text =
-            atividadesAdicionadas.replace(",", " • ")
-        findViewById<ImageView>(R.id.imagemResumo).setImageResource(icone)
+
+        mostrarAtividades(titulos, descricoes, categorias, icones, duracoes, dificuldades)
 
         findViewById<ImageButton>(R.id.botaoVoltarResumo).setOnClickListener {
             finish()
@@ -63,15 +63,18 @@ class ResumoActivity : AppCompatActivity() {
             intent.putExtra(ViagemExtras.DATA_IDA, dataIda)
             intent.putExtra(ViagemExtras.DATA_VOLTA, dataVolta)
             intent.putExtra(ViagemExtras.PREFERENCIAS, preferencias)
-            intent.putExtra(ViagemExtras.ATIVIDADES_ADICIONADAS, atividadesAdicionadas)
+            intent.putStringArrayListExtra(ViagemExtras.ATIVIDADES_TITULOS, titulos)
+            intent.putStringArrayListExtra(ViagemExtras.ATIVIDADES_DESCRICOES, descricoes)
+            intent.putStringArrayListExtra(ViagemExtras.ATIVIDADES_CATEGORIAS, categorias)
+            intent.putIntegerArrayListExtra(ViagemExtras.ATIVIDADES_ICONES, icones)
+            intent.putIntegerArrayListExtra(ViagemExtras.ATIVIDADES_DURACOES, duracoes)
+            intent.putStringArrayListExtra(ViagemExtras.ATIVIDADES_DIFICULDADES, dificuldades)
             startActivity(intent)
         }
 
         findViewById<Button>(R.id.botaoFinalizar).setOnClickListener {
             val dados = "Destino=$destino, ida=$dataIda, volta=$dataVolta, " +
-                "preferências=$preferencias, atividade=$titulo, " +
-                "duração=$duracao, dificuldade=$dificuldade, " +
-                "atividades adicionadas=$atividadesAdicionadas"
+                "preferências=$preferencias, atividades=${titulos.joinToString()}"
             Log.d("Routip", "Tela 4 finalizada: $dados")
 
             AlertDialog.Builder(this)
@@ -83,6 +86,39 @@ class ResumoActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 .show()
+        }
+    }
+
+    private fun mostrarAtividades(
+        titulos: ArrayList<String>,
+        descricoes: ArrayList<String>,
+        categorias: ArrayList<String>,
+        icones: ArrayList<Int>,
+        duracoes: ArrayList<Int>,
+        dificuldades: ArrayList<String>
+    ) {
+        val lista = findViewById<LinearLayout>(R.id.listaAtividadesResumo)
+
+        for (indice in titulos.indices) {
+            val item = layoutInflater.inflate(
+                R.layout.item_resumo_atividade,
+                lista,
+                false
+            )
+
+            item.findViewById<TextView>(R.id.tituloItemResumo).text = titulos[indice]
+            item.findViewById<TextView>(R.id.descricaoItemResumo).text = descricoes[indice]
+            item.findViewById<TextView>(R.id.categoriaItemResumo).text = categorias[indice]
+            item.findViewById<ImageView>(R.id.imagemItemResumo).setImageResource(icones[indice])
+            item.findViewById<TextView>(R.id.duracaoItemResumo).text =
+                resources.getQuantityString(
+                    R.plurals.quantidade_horas,
+                    duracoes[indice],
+                    duracoes[indice]
+                )
+            item.findViewById<TextView>(R.id.dificuldadeItemResumo).text = dificuldades[indice]
+
+            lista.addView(item)
         }
     }
 }

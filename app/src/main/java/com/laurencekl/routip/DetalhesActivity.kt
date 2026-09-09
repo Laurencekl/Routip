@@ -28,9 +28,24 @@ class DetalhesActivity : AppCompatActivity() {
         val dataIda = intent.getStringExtra(ViagemExtras.DATA_IDA).orEmpty()
         val dataVolta = intent.getStringExtra(ViagemExtras.DATA_VOLTA).orEmpty()
         val preferencias = intent.getStringExtra(ViagemExtras.PREFERENCIAS).orEmpty()
-        val atividadesAdicionadas = intent.getStringExtra(
-            ViagemExtras.ATIVIDADES_ADICIONADAS
-        ).orEmpty()
+        val titulosAdicionados = intent.getStringArrayListExtra(
+            ViagemExtras.ATIVIDADES_TITULOS
+        ) ?: arrayListOf()
+        val descricoesAdicionadas = intent.getStringArrayListExtra(
+            ViagemExtras.ATIVIDADES_DESCRICOES
+        ) ?: arrayListOf()
+        val categoriasAdicionadas = intent.getStringArrayListExtra(
+            ViagemExtras.ATIVIDADES_CATEGORIAS
+        ) ?: arrayListOf()
+        val iconesAdicionados = intent.getIntegerArrayListExtra(
+            ViagemExtras.ATIVIDADES_ICONES
+        ) ?: arrayListOf()
+        val duracoesAdicionadas = intent.getIntegerArrayListExtra(
+            ViagemExtras.ATIVIDADES_DURACOES
+        ) ?: arrayListOf()
+        val dificuldadesAdicionadas = intent.getStringArrayListExtra(
+            ViagemExtras.ATIVIDADES_DIFICULDADES
+        ) ?: arrayListOf()
 
         findViewById<TextView>(R.id.tituloDetalhes).text = titulo
         findViewById<TextView>(R.id.descricaoDetalhes).text = descricao
@@ -69,7 +84,12 @@ class DetalhesActivity : AppCompatActivity() {
                 dataIda,
                 dataVolta,
                 preferencias,
-                atividadesAdicionadas,
+                titulosAdicionados,
+                descricoesAdicionadas,
+                categoriasAdicionadas,
+                iconesAdicionados,
+                duracoesAdicionadas,
+                dificuldadesAdicionadas,
                 seekDuracao.progress
             )
         }
@@ -92,7 +112,12 @@ class DetalhesActivity : AppCompatActivity() {
         dataIda: String,
         dataVolta: String,
         preferencias: String,
-        atividadesAdicionadas: String,
+        titulosAdicionados: ArrayList<String>,
+        descricoesAdicionadas: ArrayList<String>,
+        categoriasAdicionadas: ArrayList<String>,
+        iconesAdicionados: ArrayList<Int>,
+        duracoesAdicionadas: ArrayList<Int>,
+        dificuldadesAdicionadas: ArrayList<String>,
         duracao: Int
     ) {
         val radioDificuldade = findViewById<RadioGroup>(R.id.radioDificuldade)
@@ -111,17 +136,18 @@ class DetalhesActivity : AppCompatActivity() {
 
         Log.d("Routip", "Tela 3: $resumo")
 
-        val listaAtualizada = if (atividadesAdicionadas.isBlank()) {
-            titulo
-        } else {
-            "$atividadesAdicionadas,$titulo"
-        }
-
         AlertDialog.Builder(this)
             .setTitle(R.string.confirmar_atividade)
             .setMessage(resumo)
             .setPositiveButton(R.string.ver_resumo) { _, _ ->
                 Log.d("Routip", "Tela 3 -> Tela 4: $resumo")
+
+                titulosAdicionados.add(titulo)
+                descricoesAdicionadas.add(descricao)
+                categoriasAdicionadas.add(categoria)
+                iconesAdicionados.add(icone)
+                duracoesAdicionadas.add(duracao)
+                dificuldadesAdicionadas.add(dificuldade)
 
                 val intent = Intent(this, ResumoActivity::class.java)
                 intent.putExtra(ViagemExtras.DESTINO, destino)
@@ -132,9 +158,30 @@ class DetalhesActivity : AppCompatActivity() {
                 intent.putExtra(ViagemExtras.ATIVIDADE_DESCRICAO, descricao)
                 intent.putExtra(ViagemExtras.ATIVIDADE_CATEGORIA, categoria)
                 intent.putExtra(ViagemExtras.ATIVIDADE_ICONE, icone)
-                intent.putExtra(ViagemExtras.DURACAO, duracao)
-                intent.putExtra(ViagemExtras.DIFICULDADE, dificuldade)
-                intent.putExtra(ViagemExtras.ATIVIDADES_ADICIONADAS, listaAtualizada)
+                intent.putStringArrayListExtra(
+                    ViagemExtras.ATIVIDADES_TITULOS,
+                    titulosAdicionados
+                )
+                intent.putStringArrayListExtra(
+                    ViagemExtras.ATIVIDADES_DESCRICOES,
+                    descricoesAdicionadas
+                )
+                intent.putStringArrayListExtra(
+                    ViagemExtras.ATIVIDADES_CATEGORIAS,
+                    categoriasAdicionadas
+                )
+                intent.putIntegerArrayListExtra(
+                    ViagemExtras.ATIVIDADES_ICONES,
+                    iconesAdicionados
+                )
+                intent.putIntegerArrayListExtra(
+                    ViagemExtras.ATIVIDADES_DURACOES,
+                    duracoesAdicionadas
+                )
+                intent.putStringArrayListExtra(
+                    ViagemExtras.ATIVIDADES_DIFICULDADES,
+                    dificuldadesAdicionadas
+                )
                 startActivity(intent)
             }
             .setNegativeButton(R.string.cancelar, null)

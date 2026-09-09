@@ -26,9 +26,24 @@ class AtividadesActivity : AppCompatActivity() {
         val dataIda = intent.getStringExtra(ViagemExtras.DATA_IDA).orEmpty()
         val dataVolta = intent.getStringExtra(ViagemExtras.DATA_VOLTA).orEmpty()
         val preferenciasTexto = intent.getStringExtra(ViagemExtras.PREFERENCIAS).orEmpty()
-        val atividadesAdicionadas = intent.getStringExtra(
-            ViagemExtras.ATIVIDADES_ADICIONADAS
-        ).orEmpty()
+        val titulosAdicionados = intent.getStringArrayListExtra(
+            ViagemExtras.ATIVIDADES_TITULOS
+        ) ?: arrayListOf()
+        val descricoesAdicionadas = intent.getStringArrayListExtra(
+            ViagemExtras.ATIVIDADES_DESCRICOES
+        ) ?: arrayListOf()
+        val categoriasAdicionadas = intent.getStringArrayListExtra(
+            ViagemExtras.ATIVIDADES_CATEGORIAS
+        ) ?: arrayListOf()
+        val iconesAdicionados = intent.getIntegerArrayListExtra(
+            ViagemExtras.ATIVIDADES_ICONES
+        ) ?: arrayListOf()
+        val duracoesAdicionadas = intent.getIntegerArrayListExtra(
+            ViagemExtras.ATIVIDADES_DURACOES
+        ) ?: arrayListOf()
+        val dificuldadesAdicionadas = intent.getStringArrayListExtra(
+            ViagemExtras.ATIVIDADES_DIFICULDADES
+        ) ?: arrayListOf()
         val preferencias = preferenciasTexto.split(",").filter { it.isNotBlank() }
 
         findViewById<TextView>(R.id.textoDestino).text = destino
@@ -48,7 +63,12 @@ class AtividadesActivity : AppCompatActivity() {
             dataIda,
             dataVolta,
             preferenciasTexto,
-            atividadesAdicionadas
+            titulosAdicionados,
+            descricoesAdicionadas,
+            categoriasAdicionadas,
+            iconesAdicionados,
+            duracoesAdicionadas,
+            dificuldadesAdicionadas
         )
     }
 
@@ -103,7 +123,12 @@ class AtividadesActivity : AppCompatActivity() {
         dataIda: String,
         dataVolta: String,
         preferencias: String,
-        atividadesAdicionadas: String
+        titulosAdicionados: ArrayList<String>,
+        descricoesAdicionadas: ArrayList<String>,
+        categoriasAdicionadas: ArrayList<String>,
+        iconesAdicionados: ArrayList<Int>,
+        duracoesAdicionadas: ArrayList<Int>,
+        dificuldadesAdicionadas: ArrayList<String>
     ) {
         val dadosLista = atividades.map { atividade ->
             hashMapOf<String, Any>(
@@ -142,7 +167,15 @@ class AtividadesActivity : AppCompatActivity() {
             intent.putExtra(ViagemExtras.ATIVIDADE_DESCRICAO, atividade.descricao)
             intent.putExtra(ViagemExtras.ATIVIDADE_CATEGORIA, atividade.categoria)
             intent.putExtra(ViagemExtras.ATIVIDADE_ICONE, atividade.icone)
-            intent.putExtra(ViagemExtras.ATIVIDADES_ADICIONADAS, atividadesAdicionadas)
+            intent.putStringArrayListExtra(ViagemExtras.ATIVIDADES_TITULOS, titulosAdicionados)
+            intent.putStringArrayListExtra(ViagemExtras.ATIVIDADES_DESCRICOES, descricoesAdicionadas)
+            intent.putStringArrayListExtra(ViagemExtras.ATIVIDADES_CATEGORIAS, categoriasAdicionadas)
+            intent.putIntegerArrayListExtra(ViagemExtras.ATIVIDADES_ICONES, iconesAdicionados)
+            intent.putIntegerArrayListExtra(ViagemExtras.ATIVIDADES_DURACOES, duracoesAdicionadas)
+            intent.putStringArrayListExtra(
+                ViagemExtras.ATIVIDADES_DIFICULDADES,
+                dificuldadesAdicionadas
+            )
             startActivity(intent)
         }
     }
