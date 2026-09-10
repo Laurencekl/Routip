@@ -5,7 +5,7 @@
     android:viewportWidth="24"
     android:viewportHeight="24">
     <path
-        android:fillColor="@color/routip_blue"
+        android:fillColor="@color/routrip_blue"
         android:pathData="M0,0h24v24H0z" />
     <path
         android:fillColor="@android:color/white"

@@ -1,4 +1,4 @@
-# Routip
+# Routrip
 
 Aplicativo Android para criar um planejamento simples de viagem. O projeto foi desenvolvido em Kotlin e utiliza telas em XML.
 

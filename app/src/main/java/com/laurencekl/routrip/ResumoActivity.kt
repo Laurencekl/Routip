@@ -1,4 +1,4 @@
-package com.laurencekl.routip
+package com.laurencekl.routrip
 
 import android.content.Intent
 import android.os.Bundle
@@ -56,7 +56,7 @@ class ResumoActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.botaoAdicionarOutra).setOnClickListener {
-            Log.d("Routip", "Tela 4 -> Tela 2: adicionar outra atividade")
+            Log.d("Routrip", "Tela 4 -> Tela 2: adicionar outra atividade")
 
             val intent = Intent(this, AtividadesActivity::class.java)
             intent.putExtra(ViagemExtras.DESTINO, destino)
@@ -75,7 +75,7 @@ class ResumoActivity : AppCompatActivity() {
         findViewById<Button>(R.id.botaoFinalizar).setOnClickListener {
             val dados = "Destino=$destino, ida=$dataIda, volta=$dataVolta, " +
                 "preferências=$preferencias, atividades=${titulos.joinToString()}"
-            Log.d("Routip", "Tela 4 finalizada: $dados")
+            Log.d("Routrip", "Tela 4 finalizada: $dados")
 
             AlertDialog.Builder(this)
                 .setTitle(R.string.viagem_planejada)

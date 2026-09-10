@@ -20,6 +20,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Routip"
+rootProject.name = "Routrip"
 include(":app")
-

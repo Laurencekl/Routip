@@ -8,7 +8,7 @@
     android:layout_marginBottom="14dp"
     app:cardCornerRadius="18dp"
     app:cardElevation="3dp"
-    app:strokeColor="@color/routip_blue_border"
+    app:strokeColor="@color/routrip_blue_border"
     app:strokeWidth="1dp">
 
     <LinearLayout
@@ -30,7 +30,7 @@
                 android:background="@drawable/icon_background"
                 android:contentDescription="@string/imagem_atividade"
                 android:padding="14dp"
-                app:tint="@color/routip_blue" />
+                app:tint="@color/routrip_blue" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -43,7 +43,7 @@
                     android:id="@+id/tituloItemResumo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/routip_text"
+                    android:textColor="@color/routrip_text"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -52,7 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:textColor="@color/routip_blue"
+                    android:textColor="@color/routrip_blue"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:textColor="@color/routip_text_secondary"
+            android:textColor="@color/routrip_text_secondary"
             android:textSize="16sp" />
 
         <LinearLayout
@@ -81,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/duracao"
-                    android:textColor="@color/routip_text_secondary"
+                    android:textColor="@color/routrip_text_secondary"
                     android:textStyle="bold" />
 
                 <TextView
@@ -89,7 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:textColor="@color/routip_text"
+                    android:textColor="@color/routrip_text"
                     android:textSize="17sp" />
             </LinearLayout>
 
@@ -103,7 +103,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dificuldade"
-                    android:textColor="@color/routip_text_secondary"
+                    android:textColor="@color/routrip_text_secondary"
                     android:textStyle="bold" />
 
                 <TextView
@@ -111,7 +111,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:textColor="@color/routip_text"
+                    android:textColor="@color/routrip_text"
                     android:textSize="17sp" />
             </LinearLayout>
         </LinearLayout>

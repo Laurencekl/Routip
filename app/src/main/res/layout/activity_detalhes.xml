@@ -13,7 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/routip_blue"
+            android:background="@color/routrip_blue"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="12dp"
@@ -47,7 +47,7 @@
             android:layout_margin="20dp"
             app:cardCornerRadius="18dp"
             app:cardElevation="3dp"
-            app:strokeColor="@color/routip_blue_border"
+            app:strokeColor="@color/routrip_blue_border"
             app:strokeWidth="1dp">
 
             <LinearLayout
@@ -64,7 +64,7 @@
                     android:background="@drawable/icon_background"
                     android:contentDescription="@string/imagem_atividade"
                     android:padding="18dp"
-                    app:tint="@color/routip_blue" />
+                    app:tint="@color/routrip_blue" />
 
                 <TextView
                     android:id="@+id/tituloDetalhes"
@@ -73,7 +73,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="14dp"
                     android:gravity="center"
-                    android:textColor="@color/routip_text"
+                    android:textColor="@color/routrip_text"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="4dp"
-                    android:textColor="@color/routip_blue"
+                    android:textColor="@color/routrip_blue"
                     android:textStyle="bold" />
 
                 <TextView
@@ -92,21 +92,21 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:gravity="center"
-                    android:textColor="@color/routip_text_secondary"
+                    android:textColor="@color/routrip_text_secondary"
                     android:textSize="16sp" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="20dp"
-                    android:background="@color/routip_blue_border" />
+                    android:background="@color/routrip_blue_border" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/duracao"
-                    android:textColor="@color/routip_text"
+                    android:textColor="@color/routrip_text"
                     android:textStyle="bold" />
 
                 <TextView
@@ -114,7 +114,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColor="@color/routip_blue"
+                    android:textColor="@color/routrip_blue"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -126,15 +126,15 @@
                     android:max="8"
                     android:min="1"
                     android:progress="2"
-                    android:progressTint="@color/routip_blue"
-                    android:thumbTint="@color/routip_blue" />
+                    android:progressTint="@color/routrip_blue"
+                    android:thumbTint="@color/routrip_blue" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/dificuldade"
-                    android:textColor="@color/routip_text"
+                    android:textColor="@color/routrip_text"
                     android:textStyle="bold" />
 
                 <RadioGroup
@@ -148,14 +148,14 @@
                         android:id="@+id/radioFacil"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:buttonTint="@color/routip_blue"
+                        android:buttonTint="@color/routrip_blue"
                         android:text="@string/facil" />
 
                     <RadioButton
                         android:id="@+id/radioModerada"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:buttonTint="@color/routip_blue"
+                        android:buttonTint="@color/routrip_blue"
                         android:checked="true"
                         android:text="@string/moderada" />
 
@@ -163,7 +163,7 @@
                         android:id="@+id/radioDificil"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:buttonTint="@color/routip_blue"
+                        android:buttonTint="@color/routrip_blue"
                         android:text="@string/dificil" />
                 </RadioGroup>
 
@@ -172,7 +172,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="22dp"
-                    android:backgroundTint="@color/routip_blue"
+                    android:backgroundTint="@color/routrip_blue"
                     android:text="@string/adicionar_viagem"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />

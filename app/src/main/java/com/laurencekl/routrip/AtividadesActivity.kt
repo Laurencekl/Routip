@@ -1,4 +1,4 @@
-package com.laurencekl.routip
+package com.laurencekl.routrip
 
 import android.content.Intent
 import android.os.Bundle
@@ -167,7 +167,7 @@ class AtividadesActivity : AppCompatActivity() {
                 return@setOnItemClickListener
             }
 
-            Log.d("Routip", "Tela 2 -> Tela 3: atividade=${atividade.titulo}")
+            Log.d("Routrip", "Tela 2 -> Tela 3: atividade=${atividade.titulo}")
 
             val intent = Intent(this, DetalhesActivity::class.java)
             intent.putExtra(ViagemExtras.DESTINO, destino)

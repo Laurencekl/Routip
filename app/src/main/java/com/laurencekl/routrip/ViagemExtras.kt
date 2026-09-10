@@ -1,4 +1,4 @@
-package com.laurencekl.routip
+package com.laurencekl.routrip
 
 object ViagemExtras {
     const val DESTINO = "destino"

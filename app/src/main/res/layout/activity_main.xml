@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/subtitulo"
-                android:textColor="@color/routip_blue_light"
+                android:textColor="@color/routrip_blue_light"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -52,7 +52,7 @@
             android:layout_margin="20dp"
             app:cardCornerRadius="18dp"
             app:cardElevation="3dp"
-            app:strokeColor="@color/routip_blue_border"
+            app:strokeColor="@color/routrip_blue_border"
             app:strokeWidth="1dp">
 
             <LinearLayout
@@ -65,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/configure_viagem"
-                    android:textColor="@color/routip_text"
+                    android:textColor="@color/routrip_text"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="18dp"
                     android:text="@string/destino"
-                    android:textColor="@color/routip_text"
+                    android:textColor="@color/routrip_text"
                     android:textStyle="bold" />
 
                 <Spinner
@@ -82,7 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginTop="4dp"
-                    android:backgroundTint="@color/routip_blue" />
+                    android:backgroundTint="@color/routrip_blue" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -102,7 +102,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/data_ida"
-                            android:textColor="@color/routip_text"
+                            android:textColor="@color/routrip_text"
                             android:textStyle="bold" />
 
                         <Button
@@ -110,9 +110,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
-                            android:backgroundTint="@color/routip_blue_soft"
+                            android:backgroundTint="@color/routrip_blue_soft"
                             android:text="@string/selecionar_data"
-                            android:textColor="@color/routip_blue_dark" />
+                            android:textColor="@color/routrip_blue_dark" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -126,7 +126,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/data_volta"
-                            android:textColor="@color/routip_text"
+                            android:textColor="@color/routrip_text"
                             android:textStyle="bold" />
 
                         <Button
@@ -134,9 +134,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
-                            android:backgroundTint="@color/routip_blue_soft"
+                            android:backgroundTint="@color/routrip_blue_soft"
                             android:text="@string/selecionar_data"
-                            android:textColor="@color/routip_blue_dark" />
+                            android:textColor="@color/routrip_blue_dark" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -145,28 +145,28 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="18dp"
                     android:text="@string/preferencias"
-                    android:textColor="@color/routip_text"
+                    android:textColor="@color/routrip_text"
                     android:textStyle="bold" />
 
                 <CheckBox
                     android:id="@+id/checkGastronomia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/routip_blue"
+                    android:buttonTint="@color/routrip_blue"
                     android:text="@string/gastronomia" />
 
                 <CheckBox
                     android:id="@+id/checkNatureza"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/routip_blue"
+                    android:buttonTint="@color/routrip_blue"
                     android:text="@string/natureza" />
 
                 <CheckBox
                     android:id="@+id/checkFotografia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/routip_blue"
+                    android:buttonTint="@color/routrip_blue"
                     android:text="@string/fotografia" />
 
                 <Button
@@ -174,7 +174,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="18dp"
-                    android:backgroundTint="@color/routip_blue"
+                    android:backgroundTint="@color/routrip_blue"
                     android:text="@string/continuar"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />

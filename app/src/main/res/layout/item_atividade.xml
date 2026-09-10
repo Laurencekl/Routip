@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="14dp"
     app:cardElevation="2dp"
-    app:strokeColor="@color/routip_blue_border"
+    app:strokeColor="@color/routrip_blue_border"
     app:strokeWidth="1dp">
 
     <LinearLayout
@@ -23,7 +23,7 @@
             android:background="@drawable/icon_background"
             android:contentDescription="@string/imagem_atividade"
             android:padding="14dp"
-            app:tint="@color/routip_blue" />
+            app:tint="@color/routrip_blue" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -36,7 +36,7 @@
                 android:id="@+id/tituloAtividade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/routip_text"
+                android:textColor="@color/routrip_text"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:textColor="@color/routip_blue"
+                android:textColor="@color/routrip_blue"
                 android:textStyle="bold" />
 
             <TextView
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/routip_text_secondary"
+                android:textColor="@color/routrip_text_secondary"
                 android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>

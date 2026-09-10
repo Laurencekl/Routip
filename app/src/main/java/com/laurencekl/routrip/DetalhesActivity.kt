@@ -1,4 +1,4 @@
-package com.laurencekl.routip
+package com.laurencekl.routrip
 
 import android.content.Intent
 import android.os.Bundle
@@ -144,13 +144,13 @@ class DetalhesActivity : AppCompatActivity() {
             dificuldade
         )
 
-        Log.d("Routip", "Tela 3: $resumo")
+        Log.d("Routrip", "Tela 3: $resumo")
 
         AlertDialog.Builder(this)
             .setTitle(R.string.confirmar_atividade)
             .setMessage(resumo)
             .setPositiveButton(R.string.ver_resumo) { _, _ ->
-                Log.d("Routip", "Tela 3 -> Tela 4: $resumo")
+                Log.d("Routrip", "Tela 3 -> Tela 4: $resumo")
 
                 titulosAdicionados.add(titulo)
                 descricoesAdicionadas.add(descricao)

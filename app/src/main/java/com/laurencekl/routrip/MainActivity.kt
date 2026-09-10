@@ -1,4 +1,4 @@
-package com.laurencekl.routip
+package com.laurencekl.routrip
 
 import android.app.DatePickerDialog
 import android.content.Intent
@@ -145,7 +145,7 @@ class MainActivity : AppCompatActivity() {
             .setTitle(R.string.tudo_certo)
             .setMessage(resumo)
             .setPositiveButton(R.string.ver_atividades) { _, _ ->
-                Log.d("Routip", "Tela 1 -> Tela 2: $resumo")
+                Log.d("Routrip", "Tela 1 -> Tela 2: $resumo")
 
                 val intent = Intent(this, AtividadesActivity::class.java)
                 intent.putExtra(ViagemExtras.DESTINO, spinnerDestino.selectedItem.toString())

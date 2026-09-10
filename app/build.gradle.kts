@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    namespace = "com.laurencekl.routip"
+    namespace = "com.laurencekl.routrip"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "com.laurencekl.routip"
+        applicationId = "com.laurencekl.routrip"
         minSdk = 31
         targetSdk = 37
         versionCode = 1
