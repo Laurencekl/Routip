@@ -10,6 +10,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class ResumoActivity : AppCompatActivity() {
 
@@ -20,6 +23,7 @@ class ResumoActivity : AppCompatActivity() {
         val destino = intent.getStringExtra(ViagemExtras.DESTINO).orEmpty()
         val dataIda = intent.getStringExtra(ViagemExtras.DATA_IDA).orEmpty()
         val dataVolta = intent.getStringExtra(ViagemExtras.DATA_VOLTA).orEmpty()
+        val quantidadeDias = calcularQuantidadeDias(dataIda, dataVolta)
         val preferencias = intent.getStringExtra(ViagemExtras.PREFERENCIAS).orEmpty()
         val titulos = intent.getStringArrayListExtra(
             ViagemExtras.ATIVIDADES_TITULOS
@@ -46,6 +50,12 @@ class ResumoActivity : AppCompatActivity() {
             dataIda,
             dataVolta
         )
+        findViewById<TextView>(R.id.textoQuantidadeDiasResumo).text =
+            resources.getQuantityString(
+                R.plurals.quantidade_dias_viagem,
+                quantidadeDias,
+                quantidadeDias
+            )
         findViewById<TextView>(R.id.textoPreferenciasResumo).text =
             preferencias.replace(",", ", ")
 
@@ -87,6 +97,23 @@ class ResumoActivity : AppCompatActivity() {
                 }
                 .show()
         }
+    }
+
+    private fun calcularQuantidadeDias(dataIda: String, dataVolta: String): Int {
+        val formato = SimpleDateFormat("dd/MM/yyyy", Locale.forLanguageTag("pt-BR"))
+        val ida = formato.parse(dataIda) ?: return 1
+        val volta = formato.parse(dataVolta) ?: return 1
+
+        val diaAtual = Calendar.getInstance().apply { time = ida }
+        val ultimoDia = Calendar.getInstance().apply { time = volta }
+        var quantidadeDias = 1
+
+        while (diaAtual.before(ultimoDia)) {
+            diaAtual.add(Calendar.DAY_OF_MONTH, 1)
+            quantidadeDias++
+        }
+
+        return quantidadeDias
     }
 
     private fun mostrarAtividades(

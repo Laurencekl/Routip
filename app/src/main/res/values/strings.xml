@@ -40,6 +40,7 @@
     <string name="resumo_viagem">Resumo da viagem</string>
     <string name="dados_viagem">Dados da viagem</string>
     <string name="periodo">Período</string>
+    <string name="duracao_viagem">Duração da viagem</string>
     <string name="atividade_escolhida">Atividades escolhidas</string>
     <string name="adicionar_outra_atividade">Adicionar outra atividade</string>
     <string name="atividade_ja_adicionada">Esta atividade já foi adicionada ao roteiro.</string>
@@ -53,6 +54,11 @@
     <plurals name="quantidade_horas">
         <item quantity="one">%d hora</item>
         <item quantity="other">%d horas</item>
+    </plurals>
+
+    <plurals name="quantidade_dias_viagem">
+        <item quantity="one">Sua viagem terá %d dia</item>
+        <item quantity="other">Sua viagem terá %d dias</item>
     </plurals>
 
     <string-array name="destinos">

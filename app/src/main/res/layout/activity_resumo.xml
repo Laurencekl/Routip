@@ -101,6 +101,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
+                    android:text="@string/duracao_viagem"
+                    android:textColor="@color/routrip_text_secondary"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textoQuantidadeDiasResumo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/routrip_blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
                     android:text="@string/preferencias"
                     android:textColor="@color/routrip_text_secondary"
                     android:textStyle="bold" />
